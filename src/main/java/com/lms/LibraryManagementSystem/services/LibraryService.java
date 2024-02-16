@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LibraryService {
     LibraryDto createLibrary(LibraryDto libraryDto);
-    LibraryDto updateLibrary(LibraryDto libraryDto, int facultyId);
+    LibraryDto updateLibrary(LibraryDto libraryDto, int libId, int facultyId);
     LibraryDto getLibraryById(int libraryId);
     List<LibraryDto> getAllLibraries();
 }

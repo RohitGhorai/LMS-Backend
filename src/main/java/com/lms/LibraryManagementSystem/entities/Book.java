@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @Entity
 @NoArgsConstructor
@@ -17,7 +14,9 @@ public class Book {
     private String title;
     private String isbn;
     private String pages;
-    private String language;
+    @ManyToOne
+    @JoinColumn(name = "languageId")
+    private Language language;
     private int edition;
     @ManyToOne
     @JoinColumn(name = "authorId")
@@ -32,6 +31,4 @@ public class Book {
     @JoinColumn(name = "facultyId")
     private Faculty faculty;
     private String description;
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Copies> copies = new ArrayList<>();
 }

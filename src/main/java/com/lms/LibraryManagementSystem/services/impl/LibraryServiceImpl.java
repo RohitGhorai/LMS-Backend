@@ -28,8 +28,8 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public LibraryDto updateLibrary(LibraryDto libraryDto, int facultyId) {
-        Library library = this.modelMapper.map(libraryDto, Library.class);
+    public LibraryDto updateLibrary(LibraryDto libraryDto, int libId, int facultyId) {
+        Library library = this.libraryRepo.findById(libId).orElseThrow(() -> new ResourceNotFoundException("Library", "Id", libId));
         Faculty faculty = this.facultyRepo.findById(facultyId).orElseThrow(() -> new ResourceNotFoundException("Faculty", "Id", facultyId));
         library.setFaculty(faculty);
         library.setEmail(libraryDto.getEmail());
