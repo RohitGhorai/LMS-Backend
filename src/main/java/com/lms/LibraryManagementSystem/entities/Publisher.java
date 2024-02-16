@@ -11,5 +11,6 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String publisher;
+    private String emailId;
     private String location;
 }
