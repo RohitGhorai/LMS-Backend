@@ -57,6 +57,6 @@ public class BookServiceImpl implements BookService {
         update.setPublicationYear(book.getPublicationYear());
         update.setCategory(category);
         update.setDescription(book.getDescription());
-        return null;
+        return this.bookRepo.save(update);
     }
 }
