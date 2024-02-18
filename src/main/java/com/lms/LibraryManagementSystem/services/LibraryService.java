@@ -1,5 +1,6 @@
 package com.lms.LibraryManagementSystem.services;
 
+import com.lms.LibraryManagementSystem.entities.Library;
 import com.lms.LibraryManagementSystem.payloads.LibraryDto;
 
 import java.util.List;

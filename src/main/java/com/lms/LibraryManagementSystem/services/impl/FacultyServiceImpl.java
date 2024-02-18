@@ -1,9 +1,11 @@
 package com.lms.LibraryManagementSystem.services.impl;
 
 import com.lms.LibraryManagementSystem.entities.Faculty;
+import com.lms.LibraryManagementSystem.entities.Library;
 import com.lms.LibraryManagementSystem.exceptions.ResourceNotFoundException;
 import com.lms.LibraryManagementSystem.payloads.FacultyDto;
 import com.lms.LibraryManagementSystem.repositories.FacultyRepo;
+import com.lms.LibraryManagementSystem.repositories.LibraryRepo;
 import com.lms.LibraryManagementSystem.services.FacultyService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,13 @@ public class FacultyServiceImpl implements FacultyService {
     private ModelMapper modelMapper;
     @Autowired
     private FacultyRepo facultyRepo;
+    @Autowired
+    private LibraryRepo libraryRepo;
     @Override
-    public FacultyDto createFaculty(FacultyDto facultyDto) {
+    public FacultyDto createFaculty(FacultyDto facultyDto, int libId) {
         Faculty faculty = this.modelMapper.map(facultyDto, Faculty.class);
+        Library library = this.libraryRepo.findById(libId).orElseThrow(() -> new ResourceNotFoundException("Library", "Id", libId));
+        faculty.setLibrary(library);
         Faculty create = this.facultyRepo.save(faculty);
         return this.modelMapper.map(create, FacultyDto.class);
     }

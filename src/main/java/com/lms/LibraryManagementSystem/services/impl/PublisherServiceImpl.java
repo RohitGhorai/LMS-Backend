@@ -7,6 +7,8 @@ import com.lms.LibraryManagementSystem.services.PublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PublisherServiceImpl implements PublisherService {
     @Autowired
@@ -22,5 +24,10 @@ public class PublisherServiceImpl implements PublisherService {
         p1.setEmailId(publisher.getEmailId());
         p1.setLocation(publisher.getLocation());
         return this.publisherRepo.save(p1);
+    }
+
+    @Override
+    public List<Publisher> getAllPublishers() {
+        return this.publisherRepo.findAll();
     }
 }

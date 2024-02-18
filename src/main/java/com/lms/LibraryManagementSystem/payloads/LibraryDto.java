@@ -1,6 +1,5 @@
 package com.lms.LibraryManagementSystem.payloads;
 
-import com.lms.LibraryManagementSystem.entities.Faculty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LibraryDto {
     private int id;
-    private Faculty faculty;
+    private FacultyDto faculty;
     private String content;
     private String email;
 }

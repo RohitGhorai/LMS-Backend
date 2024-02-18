@@ -22,6 +22,7 @@ public class Book {
     @JoinColumn(name = "authorId")
     private Author author;
     @ManyToOne
+    @JoinColumn(name = "publisherId")
     private Publisher publisher;
     private int publicationYear;
     @ManyToOne

@@ -1,6 +1,7 @@
 package com.lms.LibraryManagementSystem.controllers;
 
 import com.lms.LibraryManagementSystem.config.AppConstants;
+import com.lms.LibraryManagementSystem.entities.Library;
 import com.lms.LibraryManagementSystem.payloads.ApiResponse;
 import com.lms.LibraryManagementSystem.payloads.FacultyDto;
 import com.lms.LibraryManagementSystem.services.FacultyService;
@@ -17,9 +18,9 @@ public class FacultyController {
     @Autowired
     private FacultyService facultyService;
 
-    @PostMapping("/")
-    public ResponseEntity<FacultyDto> createFaculty(@RequestBody FacultyDto facultyDto){
-        FacultyDto facultyDto1 = this.facultyService.createFaculty(facultyDto);
+    @PostMapping("/libraries/{libId}")
+    public ResponseEntity<FacultyDto> createFaculty(@RequestBody FacultyDto facultyDto, @PathVariable int libId){
+        FacultyDto facultyDto1 = this.facultyService.createFaculty(facultyDto, libId);
         return new ResponseEntity<>(facultyDto1, HttpStatus.CREATED);
     }
 

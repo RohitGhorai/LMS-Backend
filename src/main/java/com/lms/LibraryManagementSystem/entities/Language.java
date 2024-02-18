@@ -13,6 +13,6 @@ public class Language {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String language;
-    @OneToMany
+    @OneToMany(mappedBy = "language", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 }

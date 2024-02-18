@@ -22,7 +22,7 @@ public class LibraryController {
         return new ResponseEntity<>(this.libraryService.createLibrary(libraryDto), HttpStatus.CREATED);
     }
 
-    @PutMapping("/libraries/{libId}/faculties/{facId}")
+    @PutMapping("/{libId}/faculties/{facId}")
     public ResponseEntity<LibraryDto> updateLibrary(@RequestBody LibraryDto libraryDto, @PathVariable int libId, @PathVariable int facId){
         return ResponseEntity.ok(this.libraryService.updateLibrary(libraryDto, libId, facId));
     }

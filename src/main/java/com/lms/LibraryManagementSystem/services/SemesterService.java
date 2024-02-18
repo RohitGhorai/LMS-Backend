@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface SemesterService {
     SemesterDto createSemester(SemesterDto semesterDto);
+    // List<SemesterDto> addAllSem(List<SemesterDto> semesters);
     List<SemesterDto> getAllSemesters();
 }

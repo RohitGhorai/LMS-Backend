@@ -25,6 +25,12 @@ public class SemesterController {
         return new ResponseEntity<>(semesterDto, HttpStatus.CREATED);
     }
 
+    /*@PostMapping("/")
+    public ResponseEntity<List<SemesterDto>> addAll(@RequestBody List<SemesterDto> semesters){
+        List<SemesterDto> semesterDto = this.semesterService.addAllSem(semesters);
+        return new ResponseEntity<>(semesterDto, HttpStatus.CREATED);
+    }*/
+
     @GetMapping("/")
     public ResponseEntity<List<SemesterDto>> getAllSem(){
         return ResponseEntity.ok(this.semesterService.getAllSemesters());

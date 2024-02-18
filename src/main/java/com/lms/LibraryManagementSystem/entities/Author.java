@@ -14,6 +14,5 @@ public class Author {
     private String firstName;
     private String lastName;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "bookId")
     private List<Book> books = new ArrayList<>();
 }

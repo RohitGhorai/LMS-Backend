@@ -25,6 +25,12 @@ public class SemesterServiceImpl implements SemesterService {
         return this.modelMapper.map(create, SemesterDto.class);
     }
 
+    /*@Override
+    public List<SemesterDto> addAllSem(List<SemesterDto> semesters) {
+        List<Semester> saveAll = semesters.stream().map(sem -> this.semesterRepo.save(this.modelMapper.map(sem, Semester.class))).collect(Collectors.toList());
+        return saveAll.stream().map(sem -> this.modelMapper.map(sem, SemesterDto.class)).collect(Collectors.toList());
+    }*/
+
     @Override
     public List<SemesterDto> getAllSemesters() {
         List<Semester> getAllSem = this.semesterRepo.findAll();

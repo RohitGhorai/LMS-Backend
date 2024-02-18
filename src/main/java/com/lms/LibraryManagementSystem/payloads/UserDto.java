@@ -20,7 +20,7 @@ public class UserDto {
     private String address;
     private String userName;
     private String password;
-    private Semester semester;
-    private Faculty faculty;
+    private SemesterDto semester;
+    private FacultyDto faculty;
     private City city;
 }

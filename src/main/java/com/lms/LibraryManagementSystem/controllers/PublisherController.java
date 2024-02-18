@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(AppConstants.URL_BASE + "/publishers")
 public class PublisherController {
@@ -23,5 +25,10 @@ public class PublisherController {
     @PutMapping("/{pubId}")
     public ResponseEntity<Publisher> updatePublisher(@RequestBody Publisher publisher, @PathVariable int pubId){
         return ResponseEntity.ok(this.publisherService.updatePublisher(publisher, pubId));
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<Publisher>> getAllPublishers(){
+        return ResponseEntity.ok(this.publisherService.getAllPublishers());
     }
 }
