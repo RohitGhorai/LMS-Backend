@@ -9,4 +9,5 @@ public interface LibraryService {
     LibraryDto updateLibrary(LibraryDto libraryDto, int libId, int facultyId);
     LibraryDto getLibraryById(int libraryId);
     List<LibraryDto> getAllLibraries();
+    // search
 }

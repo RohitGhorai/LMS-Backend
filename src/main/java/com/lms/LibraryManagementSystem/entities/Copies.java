@@ -15,6 +15,5 @@ public class Copies {
     @ManyToOne
     @JoinColumn(name = "bookId")
     private Book book;
-    private int available;
     private String status;
 }
