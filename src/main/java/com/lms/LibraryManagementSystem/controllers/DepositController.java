@@ -16,7 +16,7 @@ public class DepositController {
     private DepositService depositService;
 
     @PostMapping("/users/{userId}/copies/{copyId}")
-    public ResponseEntity<Deposit> addInDeposit(@RequestBody Deposit deposit, @PathVariable String userId, @PathVariable int copyId){
+    public ResponseEntity<Deposit> addInDeposit(@RequestBody Deposit deposit, @PathVariable long userId, @PathVariable int copyId){
         return new ResponseEntity<>(this.depositService.addBook(deposit, userId, copyId), HttpStatus.CREATED);
     }
 

@@ -17,20 +17,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/semesters/{semId}/faculties/{facId}")
-    public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto, @PathVariable int semId, @PathVariable int facId){
-        UserDto saveUser = this.userService.register(userDto, semId, facId);
+    @PostMapping("/semesters/{semId}/faculties/{facId}/cities/{cityId}")
+    public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto, @PathVariable int semId, @PathVariable int facId, @PathVariable int cityId){
+        UserDto saveUser = this.userService.register(userDto, semId, facId, cityId);
         return new ResponseEntity<>(saveUser, HttpStatus.CREATED);
     }
 
     @PutMapping("/{userId}")
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable String userId){
+    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable long userId){
         UserDto update = this.userService.update(userDto, userId);
         return new ResponseEntity<>(update, HttpStatus.OK);
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable String userId){
+    public ResponseEntity<UserDto> getUserById(@PathVariable long userId){
         UserDto getUser = this.userService.getUserById(userId);
         return ResponseEntity.ok(getUser);
     }
@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<ApiResponse> deleteUser(@PathVariable String userId){
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable long userId){
         this.userService.deleteUser(userId);
         return new ResponseEntity<>(new ApiResponse("User deleted !", true), HttpStatus.OK);
     }

@@ -11,10 +11,9 @@ import java.util.*;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(generator = "userId")
-    @GenericGenerator(name = "userId", strategy = "com.lms.LibraryManagementSystem.helper.UserIdGenerator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId")
-    private String id;
+    private long id;
     private String firstName;
     private String lastName;
     private String gender;

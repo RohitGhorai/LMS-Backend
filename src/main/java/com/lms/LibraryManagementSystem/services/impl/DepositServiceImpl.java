@@ -21,8 +21,8 @@ public class DepositServiceImpl implements DepositService {
     @Autowired
     private UserRepo userRepo;
     @Override
-    public Deposit addBook(Deposit deposit, String userId, int copyId) {
-        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id : " + userId, 0));
+    public Deposit addBook(Deposit deposit, long userId, int copyId) {
+        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
         Copies copies = this.copiesRepo.findById(copyId).orElseThrow(() -> new ResourceNotFoundException("Copy", "Id", copyId));
         deposit.setUser(user);
         deposit.setCopy(copies);
