@@ -13,6 +13,8 @@ public class Author {
     private int id;
     private String firstName;
     private String lastName;
+    private Date dob;
+    private String nationality;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Book> books = new ArrayList<>();
 }
